@@ -1,0 +1,75 @@
+@charset "utf-8";
+@import url('../../css/normalize.css');
+
+/* 기본 박스 사이징 재설정 */
+/* width에 border-width와 padding을 포함하여 계산 */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* css module */
+/* float 이슈를 해결하기 위한 css 선언 */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.container {
+  background-color: silver;
+}
+
+.header, .visual, .main, .slogan, .footer {
+  width: 940px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: yellow;
+  height: 10vh;
+}
+
+.visual {
+  background-color: lime;
+  height: 10vh;
+}
+
+.main {
+  background-color: blue;
+  padding: 30px 15px;
+}
+
+.group {
+  float: left;
+  height: 60vh;
+  margin: 0 15px;
+}
+
+.group1 {
+  background-color: tomato;
+  width: 250px;
+}
+
+.group2 {
+  background-color: skyblue;
+  width: 380px;
+}
+
+.group3 {
+  background-color: pink;
+  width: 190px;
+}
+
+.slogan {
+  background-color: orange;
+  height: 10vh;
+}
+
+.footer-bg {
+  background-color: purple;
+}
+
+.footer {
+  background-color: yellow;
+  height: 10vh;
+}
