@@ -17,14 +17,14 @@
 
 .container {
   background-color: silver;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
 }
 
 .header, .visual, .main, .slogan, .footer {
   width: 940px;
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
 
 .header {
@@ -38,7 +38,7 @@
 }
 
 .main {
-  background-color: blue;
+  background-color: #ffffff;
   /* padding: 30px 15px; */
   height: 60vh;
   display: flex;
@@ -58,18 +58,16 @@
 .group1 {
   background-color: tomato;
   width: 250px;
-  order: 1;
 }
 
 .group2 {
   background-color: skyblue;
-  width: 580px;
+  width: 380px;
 }
 
 .group3 {
   background-color: pink;
   width: 190px;
-  order: -1;
 }
 
 .slogan {
@@ -80,8 +78,8 @@
 .footer-bg {
   background-color: purple;
   width: 100vw;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 }
 
 .footer {
