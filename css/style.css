@@ -7,13 +7,47 @@
   box-sizing: border-box;
 }
 
-/* css module */
+/* css module start */
+
+/* 숨김 콘텐츠 */
+.a11y-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip-path: polygon(0 0, 0 0, 0 0);
+  /* 현재는 권장되지 않는 과거 문법 */
+  clip: rect(0, 0, 0, 0); 
+}
+
 /* float 이슈를 해결하기 위한 css 선언 */
 .clearfix::after {
   content: "";
   display: block;
   clear: both;
 }
+
+/* css module end */
+
+/* 기본 설정 start*/
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.4rem;
+  color: #181818;
+  background-color: #ffffff;
+}
+
+/* 기본 설정 end */
 
 .container {
   background-color: silver;
@@ -28,8 +62,50 @@
 }
 
 .header {
-  background-color: yellow;
-  height: 10vh;
+  background-color: #ffffff;
+  border-radius: 0 0 15px 15px;
+  padding: 0 30px;
+  position: relative;
+  /* height: 10vh; */
+}
+
+/* 로고 */
+.logo {
+  margin: 0;
+  position: absolute;
+  top: 45px;
+  left: 65px;
+}
+
+/* 멤버 링크 */
+.member {
+  margin: 0;
+  padding: 2px 0;
+  /* li 불릿기호 쓰지 않기 */
+  list-style-type: none;
+  text-align: right;
+  /* li 요소의 마크업에 줄바꿈이 되어있으면 간격이 발생하는 문제 해결 */
+  font-size: 0;
+  position: relative;
+  right: -10px;
+}
+
+.member li, .member a {
+  display: inline-block;
+}
+
+.member li {
+  font-size: 1.4rem;
+}
+
+.member li:nth-child(n+2)::before {
+  content: ":";
+  margin: 0 2px;
+}
+
+.member a {
+  text-transform: uppercase;
+  padding: 8px 10px;
 }
 
 .visual {
