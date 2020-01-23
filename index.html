@@ -199,7 +199,29 @@
       </div>
     </div>
     <main class="main">
-      <div class="group group1">그룹1</div>
+      <div class="group group1">
+        <section class="login">
+          <h2 class="login-heading">로그인</h2>
+          <form action="https://formspree.io/xvokylpq" method="POST" class="login-form">
+            <fieldset>
+              <legend>회원 로그인 폼</legend>
+              <div class="user-email">
+                <label for="userEmail">아이디</label>
+                <input name="UserID" type="email" id="userEmail" required placeholder="이메일 주소">
+              </div>
+              <div class="user-pw">
+                <label for="userPw">비밀번호</label>
+                <input name="userPwd" type="password" id="userPw" required placeholder="8자리 이상">
+              </div>
+              <button class="btn-login" type="submit">로그인</button>
+            </fieldset>
+          </form>
+          <ul class="sign">
+            <li class="icon-right-open"><a href="#">회원가입</a></li>
+            <li class="icon-right-open"><a href="#">아이디/비밀번호 찾기</a></li>
+          </ul>
+        </section>
+      </div>
       <div class="group group2">그룹2</div>
       <div class="group group3">그룹3</div>
     </main>
