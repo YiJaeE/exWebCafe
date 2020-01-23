@@ -191,7 +191,7 @@ body {
   padding: 8px 10px;
 }
 
-.submenu a:hover, .submenu a.active {
+.submenu a:hover, .submenu a:focus {
   color: #ff0000;
 }
 
