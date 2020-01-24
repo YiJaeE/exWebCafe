@@ -27,7 +27,7 @@ console.log($various);
   });
 });
 
-// hover시 아이콘 변경 : tap
+// focus시 아이콘 변경 : tap
 [...$icons].map((changeIcon) => {
   changeIcon.addEventListener('focus', function (e) {
     const $hoverIcon = e.target;
