@@ -13,7 +13,7 @@ console.log($various);
   basicIcon.classList.add('icon-dot-circled');
 });
 
-// hover시 아이콘 변경 : mouse
+// hover시 아이콘 변경
 [...$icons].map((changeIcon) => {
   changeIcon.addEventListener('mouseover', function (e) {
     const $hoverIcon = e.target;
@@ -27,7 +27,7 @@ console.log($various);
   });
 });
 
-// focus시 아이콘 변경 : tap
+// focus시 아이콘 변경
 [...$icons].map((changeIcon) => {
   changeIcon.addEventListener('focus', function (e) {
     const $focusIcon = e.target;
