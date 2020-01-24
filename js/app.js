@@ -1,11 +1,17 @@
 const $menu = document.querySelector('.menu');
 const $items = document.querySelector('.menu-item');
 const $button = document.querySelector('.menu-button');
-const $icons = document.querySelector('.submenu');
+const $icons = document.querySelectorAll('.submenu a');
 const $various = $menu.children;
 
 console.log($items);
+console.log($icons);
 console.log($various);
+
+// 기본 아이콘 추가
+[...$icons].map((item) => {
+  item.classList.add('icon-dot-circled');
+});
 
 // 클릭 이벤트
 $menu.addEventListener('click', function (e) {
