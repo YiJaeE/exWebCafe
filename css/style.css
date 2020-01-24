@@ -146,7 +146,7 @@ body {
   cursor: pointer;
 }
 
-.menu-act .menu-button {
+.menu-act .menu-button, .menu-button:hover {
   color: #ffff00;
 }
 
