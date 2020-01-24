@@ -21,23 +21,23 @@ console.log($various);
     $hoverIcon.classList.add('icon-ok');
   });
   changeIcon.addEventListener('mouseout', function (e) {
-    const $replayIcon = e.target;
-    $replayIcon.classList.remove('icon-ok');
-    $replayIcon.classList.add('icon-dot-circled');
+    const $hoverOutIcon = e.target;
+    $hoverOutIcon.classList.remove('icon-ok');
+    $hoverOutIcon.classList.add('icon-dot-circled');
   });
 });
 
 // focus시 아이콘 변경 : tap
 [...$icons].map((changeIcon) => {
   changeIcon.addEventListener('focus', function (e) {
-    const $hoverIcon = e.target;
-    $hoverIcon.classList.remove('icon-dot-circled');
-    $hoverIcon.classList.add('icon-ok');
+    const $focusIcon = e.target;
+    $focusIcon.classList.remove('icon-dot-circled');
+    $focusIcon.classList.add('icon-ok');
   });
   changeIcon.addEventListener('focusout', function (e) {
-    const $replayIcon = e.target;
-    $replayIcon.classList.remove('icon-ok');
-    $replayIcon.classList.add('icon-dot-circled');
+    const $focusOutIcon = e.target;
+    $focusOutIcon.classList.remove('icon-ok');
+    $focusOutIcon.classList.add('icon-dot-circled');
   });
 });
 
