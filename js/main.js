@@ -1,4 +1,4 @@
-var menu = $('menu');
+var menu = $('.menu');
 var items = $('.menu-item');
 var icons = $('.submenu a');
 
