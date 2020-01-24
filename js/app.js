@@ -4,13 +4,16 @@ const $button = document.querySelector('.menu-button');
 const $icons = document.querySelector('.submenu');
 const $various = $menu.children;
 
+console.log($items);
+console.log($various);
+
 // 클릭 이벤트
 $menu.addEventListener('click', function (e) {
-  const $clickevent = e.target.parentNode;
+  const $clickEvent = e.target.parentNode;
   ([...$various].map((item) => {
     item.classList.remove('menu-act');
   }));
-  $clickevent.classList.add('menu-act');
+  $clickEvent.classList.add('menu-act');
 });
 
 // 호버 이벤트
