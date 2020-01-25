@@ -4,42 +4,9 @@ const $button = document.querySelector('.menu-button');
 const $icons = document.querySelectorAll('.submenu a');
 const $various = $menu.children;
 
-console.log($items);
-console.log($icons);
-console.log($various);
-
-// 기본 아이콘 추가
-[...$icons].map((basicIcon) => {
-  basicIcon.classList.add('icon-dot-circled');
-});
-
-// hover시 아이콘 변경
-[...$icons].map((changeIcon) => {
-  changeIcon.addEventListener('mouseover', function (e) {
-    const $hoverIcon = e.target;
-    $hoverIcon.classList.remove('icon-dot-circled');
-    $hoverIcon.classList.add('icon-ok');
-  });
-  changeIcon.addEventListener('mouseout', function (e) {
-    const $hoverOutIcon = e.target;
-    $hoverOutIcon.classList.remove('icon-ok');
-    $hoverOutIcon.classList.add('icon-dot-circled');
-  });
-});
-
-// focus시 아이콘 변경
-[...$icons].map((changeIcon) => {
-  changeIcon.addEventListener('focus', function (e) {
-    const $focusIcon = e.target;
-    $focusIcon.classList.remove('icon-dot-circled');
-    $focusIcon.classList.add('icon-ok');
-  });
-  changeIcon.addEventListener('focusout', function (e) {
-    const $focusOutIcon = e.target;
-    $focusOutIcon.classList.remove('icon-ok');
-    $focusOutIcon.classList.add('icon-dot-circled');
-  });
-});
+// console.log($items);
+// console.log($icons);
+// console.log($various);
 
 
 // 클릭 이벤트
@@ -49,6 +16,11 @@ $menu.addEventListener('click', function (e) {
     click.classList.remove('menu-act');
   }));
   $clickEvent.classList.add('menu-act');
+});
+
+// focus 이벤트
+$menu.addEventListener('focusin', function (e) {
+  const $clickEvent = e.target;
 });
 
 // 호버 이벤트
@@ -61,3 +33,32 @@ $menu.addEventListener('click', function (e) {
 //   }
   
 // });
+
+// 기본 아이콘 추가
+[...$icons].map((basicIcon) => {
+  basicIcon.classList.add('icon-dot-circled');
+});
+
+// hover시 아이콘 변경
+[...$icons].map((changeIcon) => {
+  changeIcon.addEventListener('mouseover', function (e) {
+    const $hoverIcon = e.target;
+    $hoverIcon.classList.replace('icon-dot-circled', 'icon-ok');
+  });
+  changeIcon.addEventListener('mouseout', function (e) {
+    const $hoverOutIcon = e.target;
+    $hoverOutIcon.classList.replace('icon-ok', 'icon-dot-circled');
+  });
+});
+
+// focus시 아이콘 변경
+[...$icons].map((changeIcon) => {
+  changeIcon.addEventListener('focusin', function (e) {
+    const $focusIcon = e.target;
+    $focusIcon.classList.replace('icon-dot-circled', 'icon-ok');
+  });
+  changeIcon.addEventListener('focusout', function (e) {
+    const $focusOutIcon = e.target;
+    $focusOutIcon.classList.replace('icon-ok', 'icon-dot-circled');
+  });
+});
