@@ -1,39 +1,29 @@
+// variable
 const $menu = document.querySelector('.menu');
-const $items = document.querySelector('.menu-item');
-const $button = document.querySelector('.menu-button');
-const $icons = document.querySelectorAll('.submenu a');
 const $various = $menu.children;
+const $menuList = document.querySelector('.menu li');
+const $item = document.querySelectorAll('.menu-item');
+const $subList = document.querySelector('.submenu li');
+const $icons = document.querySelectorAll('.submenu a');
+const $icon = document.querySelector('.submenu a');
 
-// console.log($items);
-// console.log($icons);
 // console.log($various);
+// console.log($menuList);
+// console.log($item);
 
 
-// 클릭 이벤트
+// Main Menu
+// click 이벤트
 $menu.addEventListener('click', function (e) {
-  const $clickEvent = e.target.parentNode;
-  ([...$various].map((click) => {
-    click.classList.remove('menu-act');
-  }));
-  $clickEvent.classList.add('menu-act');
+  const $clickChange = e.target.parentNode;
+  [...$various].map((removeClick) => {
+    removeClick.classList.remove('menu-act');
+  });
+  if ($subList === $clickChange) return;
+  $clickChange.classList.add('menu-act');
 });
 
-// focus 이벤트
-$menu.addEventListener('focusin', function (e) {
-  const $clickEvent = e.target;
-});
-
-// 호버 이벤트
-// 문제: 호버 이벤트가 아무 데나 먹는다 -_-...
-// $menu.addEventListener('mouseover', function (e) {
-//   const $enterevent = e.target.parentNode;
-//   console.log($enterevent);
-//   if ($enterevent.classList.contains('menu-act')) {
-//     $enterevent.classList.add('menu-act');    
-//   }
-  
-// });
-
+// Sub Menu
 // 기본 아이콘 추가
 [...$icons].map((basicIcon) => {
   basicIcon.classList.add('icon-dot-circled');
@@ -62,3 +52,39 @@ $menu.addEventListener('focusin', function (e) {
     $focusOutIcon.classList.replace('icon-ok', 'icon-dot-circled');
   });
 });
+
+// focus 이벤트
+$menu.addEventListener('focusin', function (e) {
+  // const $activeMenu = document.activeElement;
+  // console.log($activeMenu);
+  const $focusMenu = e.target;
+  if ($icon === $focusMenu) return;
+  $focusMenu.classList.add('menu-act');
+});
+
+// [...$item].map((item) => {
+//   item.addEventListener('focusin', function (e) {
+//     const $focusMenu = e.target;
+//     if ($icon === $focusMenu) return;
+//     $focusMenu.classList.add('menu-act');
+//     });
+//   });
+
+
+// focus 이벤트
+// .menu-item에 .menu-act가 추가되도록
+
+// 클릭 이벤트
+// $menu.addEventListener('click', function (e) {
+//   const $clickEvent = e.target.parentNode;
+//   ([...$various].map((click) => {
+//     click.classList.remove('menu-act');    
+//   }));
+//   if ($clickEvent.classList.contains('menu')) {
+//     $item.classList.add('menu-act');
+//   } else if ($clickEvent.classList.contains('navigation')) {
+//     $item.classList.add('menu-act');
+//   } else
+//   $clickEvent.classList.add('menu-act');
+//   console.log($clickEvent);
+// });
