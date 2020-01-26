@@ -1,50 +1,71 @@
 // variable
+const $nav = document.querySelector('.navigation');
 const $menu = document.querySelector('.menu');
 const $various = $menu.children;
 const $menuList = document.querySelector('.menu li');
-const $item = document.querySelectorAll('.menu-item');
+const $items = document.querySelectorAll('.menu-item');
+const $item = document.querySelector('.menu-item');
 const $subList = document.querySelector('.submenu li');
 const $icons = document.querySelectorAll('.submenu a');
 const $icon = document.querySelector('.submenu a');
 
-// console.log($various);
+// console.log($menu);
 // console.log($menuList);
 // console.log($item);
 
 
 // Main Menu
-// click 이벤트
+// click
 $menu.addEventListener('click', function (e) {
   const $clickChange = e.target.parentNode;
-  [...$various].map((removeClick) => {
-    removeClick.classList.remove('menu-act');
+  [...$various].map((removeClass) => {
+    removeClass.classList.remove('menu-act');
   });
   if ($subList === $clickChange) return;
   $clickChange.classList.add('menu-act');
 });
 
-// focus 이벤트
-[...$item].map((item) => {
+// mouseover
+// 네비게이션에 menu-act 가 들어가는 문제
+// submenu로 내려갈 수 있으면서 item에 메뉴가 여러 개 선택되지 않도록
+$menu.addEventListener('mouseover', function (e) {
+  const $hoverChange = e.target.parentNode;
+  if ($hoverChange === $menu) {
+    $menu.classList.remove('menu-act');
+  } else $hoverChange.classList.add('menu-act');
+});
+
+// [...$various].map((hover) => {    
+//   hover.addEventListener('mouseover', function (e) {
+//     const $clickChange = e.target.parentNode;
+//     if ($clickChange === $menu) {
+//       $menu.classList.remove('menu-act');
+//     } else $clickChange.classList.add('menu-act');
+//   });
+// });
+
+// focus
+[...$items].map((item) => {
   item.addEventListener('focusin', function (e) {
     const $focusMenu = e.target;
-    const $click = document.activeElement;
-    if ($click === item) {
-      [...$various].map((removeClick) => {
-        removeClick.classList.remove('menu-act');
+    const $nowFocus = document.activeElement;
+    if ($nowFocus === item) {
+      [...$various].map((removeClass) => {
+        removeClass.classList.remove('menu-act');
       });
     } else if ($icon === $focusMenu) return;
     $focusMenu.classList.add('menu-act');
-    });
   });
+});
 
-  
+
 // Sub Menu
-// 기본 아이콘 추가
+// basic icon
 [...$icons].map((basicIcon) => {
   basicIcon.classList.add('icon-dot-circled');
 });
 
-// hover시 아이콘 변경
+// icon change on mouseover
 [...$icons].map((changeIcon) => {
   changeIcon.addEventListener('mouseover', function (e) {
     const $hoverIcon = e.target;
@@ -56,7 +77,7 @@ $menu.addEventListener('click', function (e) {
   });
 });
 
-// focus시 아이콘 변경
+// icon change on focus
 [...$icons].map((changeIcon) => {
   changeIcon.addEventListener('focusin', function (e) {
     const $focusIcon = e.target;
@@ -67,40 +88,3 @@ $menu.addEventListener('click', function (e) {
     $focusOutIcon.classList.replace('icon-ok', 'icon-dot-circled');
   });
 });
-
-
-
-
-// [...$item].map((item) => {
-//   item.addEventListener('mouseenter', function (e) {
-//     const $focusMenu = e.target;
-//     const $click = document.activeElement;
-//     console.log($click);
-//     // if ($click === item) {
-//     //   [...$various].map((removeClick) => {
-//     //     removeClick.classList.remove('menu-act');
-//     //   });
-//     // };
-//     if ($icon === $focusMenu) return;
-//     $focusMenu.classList.add('menu-act');
-//     });
-//   });
-
-
-// focus 이벤트
-// .menu-item에 .menu-act가 추가되도록
-
-// 클릭 이벤트
-// $menu.addEventListener('click', function (e) {
-//   const $clickEvent = e.target.parentNode;
-//   ([...$various].map((click) => {
-//     click.classList.remove('menu-act');    
-//   }));
-//   if ($clickEvent.classList.contains('menu')) {
-//     $item.classList.add('menu-act');
-//   } else if ($clickEvent.classList.contains('navigation')) {
-//     $item.classList.add('menu-act');
-//   } else
-//   $clickEvent.classList.add('menu-act');
-//   console.log($clickEvent);
-// });
