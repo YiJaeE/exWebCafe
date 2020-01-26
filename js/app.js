@@ -23,6 +23,21 @@ $menu.addEventListener('click', function (e) {
   $clickChange.classList.add('menu-act');
 });
 
+// focus 이벤트
+[...$item].map((item) => {
+  item.addEventListener('focusin', function (e) {
+    const $focusMenu = e.target;
+    const $click = document.activeElement;
+    if ($click === item) {
+      [...$various].map((removeClick) => {
+        removeClick.classList.remove('menu-act');
+      });
+    } else if ($icon === $focusMenu) return;
+    $focusMenu.classList.add('menu-act');
+    });
+  });
+
+  
 // Sub Menu
 // 기본 아이콘 추가
 [...$icons].map((basicIcon) => {
@@ -53,18 +68,19 @@ $menu.addEventListener('click', function (e) {
   });
 });
 
-// focus 이벤트
-$menu.addEventListener('focusin', function (e) {
-  // const $activeMenu = document.activeElement;
-  // console.log($activeMenu);
-  const $focusMenu = e.target;
-  if ($icon === $focusMenu) return;
-  $focusMenu.classList.add('menu-act');
-});
+
+
 
 // [...$item].map((item) => {
-//   item.addEventListener('focusin', function (e) {
+//   item.addEventListener('mouseenter', function (e) {
 //     const $focusMenu = e.target;
+//     const $click = document.activeElement;
+//     console.log($click);
+//     // if ($click === item) {
+//     //   [...$various].map((removeClick) => {
+//     //     removeClick.classList.remove('menu-act');
+//     //   });
+//     // };
 //     if ($icon === $focusMenu) return;
 //     $focusMenu.classList.add('menu-act');
 //     });
