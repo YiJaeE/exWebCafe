@@ -7,7 +7,7 @@
   <title>웹 카페</title>
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/jquery.min.js" defer></script>
-  <!-- <script src="./js/main.js" defer></script> -->
+  <script src="./js/main.js" defer></script>
 </head>
 <body>
   <div class="container">
@@ -221,8 +221,48 @@
             <li class="icon-right-open"><a href="#">아이디/비밀번호 찾기</a></li>
           </ul>
         </section>
+        <h2 class="a11y-hidden">유효성 검사 배너</h2>
+        <ul class="validation-list">
+          <li><a href="#" target="_blank" title="W3C Markup 유효성 검사 사이트로 이동(새창)">W3C Markup Validation</a></li>
+          <li><a href="#" target="_blank" title="CSS 유효성 검사 사이트로 이동(새창)">CSS Validation</a></li>
+        </ul>
+        <section class="term">
+          <h2 class="term-heading">웹관련 용어</h2>
+          <dl class="term-list">
+            <div class="odd clearfix">
+              <dt class="term-list-subject">웹표준 이란?</dt>
+              <dd class="term-list-thumbnail">
+                <img src="./images/web_standards.gif" alt="W3C 로고">
+              </dd>
+              <dd class="term-list-brief">
+                <a href="#">W3C 단체에서 규정한 웹 기술 사양에 대한 규칙으로서 전세계적으로 사용되는 규격을 세계 표준 규격이라고 칭하는데 보통 Wi-Fi와 같은 무선랜 규격이 전세계 공통으로 사용되기 때문에 어디서든 사용할 수 있는 장점이 있는 것처럼 웹 표준도 이런 목표를 가지고 나오게 되었다.</a>
+              </dd>
+            </div>
+            <div hidden class="even clearfix">
+              <dt class="term-list-subject">웹표준 이란?</dt>
+              <dd class="term-list-thumbnail">
+                <img src="./images/web_standards.gif" alt="W3C 로고">
+              </dd>
+              <dd class="term-list-brief">
+                <a href="#">W3C 단체에서 규정한 웹 기술 사양에 대한 규칙을 말하며 표준 규격은...</a>
+              </dd>
+            </div>
+          </dl>
+        </section>
       </div>
-      <div class="group group2">그룹2</div>
+      <div class="group group2">
+        <h2 class="a11y-hidden">검색</h2>
+        <form action="" method="POST" class="search-form">
+          <fieldset>
+            <legend>검색 폼</legend>
+            <label for="search">
+              <span class="icon-search"></span>자료검색
+            </label>
+            <input type="search" id="search" name="keyword" required placeholder="검색어를 입력하세요">
+            <button class="btn-search" type="submit">검색</button>
+          </fieldset>
+        </form>
+      </div>
       <div class="group group3">그룹3</div>
     </main>
     <article class="slogan">슬로건</article>
@@ -231,6 +271,6 @@
     </div>
   </div>
 
-  <script src="./js/app.js"></script>
+  <!-- <script src="./js/app.js"></script> -->
 </body>
 </html>

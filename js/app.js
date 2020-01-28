@@ -1,13 +1,13 @@
 // variable
 const $nav = document.querySelector('.navigation');
-const $menu = document.querySelector('.menu');
-const $various = $menu.children;
-const $menuList = document.querySelector('.menu li');
-const $items = document.querySelectorAll('.menu-item');
-const $item = document.querySelector('.menu-item');
-const $subList = document.querySelector('.submenu li');
-const $icons = document.querySelectorAll('.submenu a');
-const $icon = document.querySelector('.submenu a');
+let $menu = document.querySelector('.menu');
+let $various = $menu.children;
+let $menuList = document.querySelector('.menu li');
+let $items = document.querySelectorAll('.menu-item');
+let $item = document.querySelector('.menu-item');
+let $subList = document.querySelector('.submenu li');
+let $icons = document.querySelectorAll('.submenu a');
+let $icon = document.querySelector('.submenu a');
 
 // console.log($menu);
 // console.log($menuList);
@@ -30,9 +30,18 @@ $menu.addEventListener('click', function (e) {
 // submenu로 내려갈 수 있으면서 item에 메뉴가 여러 개 선택되지 않도록
 $menu.addEventListener('mouseover', function (e) {
   const $hoverChange = e.target.parentNode;
+  [...$items].map((item) => {
+    // const $nowFocus = document.activeElement.childNodes;
+    // console.log($nowFocus);
+    
+    // console.log(item);   
+    // item.classList.remove('menu-act');
+    // console.log(item);
+  });
   if ($hoverChange === $menu) {
     $menu.classList.remove('menu-act');
   } else $hoverChange.classList.add('menu-act');
+  // console.log($various);
 });
 
 // [...$various].map((hover) => {    
