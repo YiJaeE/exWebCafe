@@ -526,6 +526,121 @@ p::after {
   font-size: 1.2rem;
 }
 
+/* 공지사항 및 자료실 */
+.board {
+  background-color: yellow;
+  width: 380px;
+  position: relative;
+  padding-top: 45px;
+}
+
+.notice-list, .notice-more, .pds-list, .pds-more {
+  display: none;
+}
+
+.board-act .notice-list, .board-act .notice-more, .board-act .pds-list, .board-act .pds-more {
+  display: block;
+}
+
+.tab {
+  font-weight: 400;
+  margin: 0;
+  font-size: 1.4rem;
+  position: absolute;
+  top: 0;
+}
+
+.tab a {
+  border: 1px solid #aaaaaa;
+  border-radius: 5px 5px 0 0;
+  color: #888888;
+  background: #cccccc linear-gradient(180deg, #bbbbbb, #eeeeee);
+  padding: 8px 10px;
+  display: block;
+}
+
+.board-act .tab a {
+  color: #ed552f;
+  background: #ffffff;
+  border-color: #ed552f #ed552f #ffffff #ed552f;
+}
+
+.notice-heading {
+  left: 0;
+}
+
+.pds-heading {
+  left: 73px;
+}
+
+.notice-list, .pds-list {
+  background-color: pink;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.notice-list li, .pds-list li {
+  background-color: orange;
+  margin-top: 8px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.notice-list li::before, .pds-list li::before {
+  background-color: tomato;
+}
+
+.notice-list a, .pds-list a {
+  background-color: lime;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.notice-list time, .pds-list time {
+  background-color: skyblue;
+  margin-left: auto;
+}
+
+.notice-more, .pds-more {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  padding: 8px;
+}
+
+.notice-more .icon-plus, .pds-more .icon-plus {
+  color: hsla(110, 50%, 50%, 1);
+}
+
+/* float를 사용한 방법 */
+/* .notice-list li, .pds-list li {
+  background-color: orange;
+  margin-top: 8px;
+  overflow: hidden;
+} */
+
+/* .notice-list li::before, .pds-list li::before {
+  float: left;
+  background-color: tomato;
+} */
+
+/* .notice-list a, .pds-list a {
+  background-color: lime;
+  float: left;
+  width: 285px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+} */
+
+/* .notice-list time, .pds-list time {
+  background-color: skyblue;
+  float: right;
+} */
+
 /* 슬로건 */
 .slogan {
   background-color: orange;
