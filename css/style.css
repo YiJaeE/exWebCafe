@@ -528,10 +528,9 @@ p::after {
 
 /* 공지사항 및 자료실 */
 .board {
-  background-color: yellow;
   width: 380px;
   position: relative;
-  padding-top: 45px;
+  /* padding-top: 45px; */
 }
 
 .notice-list, .notice-more, .pds-list, .pds-more {
@@ -574,14 +573,12 @@ p::after {
 }
 
 .notice-list, .pds-list {
-  background-color: pink;
   margin: 0;
   padding-left: 0;
   list-style: none;
 }
 
 .notice-list li, .pds-list li {
-  background-color: orange;
   margin-top: 8px;
   display: flex;
   flex-flow: row nowrap;
@@ -589,19 +586,17 @@ p::after {
 }
 
 .notice-list li::before, .pds-list li::before {
-  background-color: tomato;
 }
 
 .notice-list a, .pds-list a {
-  background-color: lime;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  flex-grow: 1;
 }
 
 .notice-list time, .pds-list time {
-  background-color: skyblue;
-  margin-left: auto;
+  /* margin-left: auto; */
 }
 
 .notice-more, .pds-more {
