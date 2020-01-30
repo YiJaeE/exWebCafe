@@ -744,6 +744,7 @@ p::after {
   background-image: url(./images/back_forward.png);
   overflow: hidden;
   display: inline-block;
+  cursor: pointer;
 }
 
 .btn-event-prev {
