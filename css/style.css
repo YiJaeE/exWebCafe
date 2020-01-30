@@ -455,7 +455,7 @@ body {
   word-wrap: break-word;
 }
 
-/* 한줄 줄바꿈 예제 */
+/* 웹킷 줄바꿈 예제 */
 /* p {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -606,7 +606,7 @@ p::after {
   padding: 8px;
 }
 
-.notice-more .icon-plus, .pds-more .icon-plus {
+.notice-more .icon-plus, .pds-more .icon-plus, .news-more .icon-plus {
   color: hsla(110, 50%, 50%, 1);
 }
 
@@ -635,6 +635,69 @@ p::after {
   background-color: skyblue;
   float: right;
 } */
+
+/* 새소식 */
+.news {
+  position: relative;
+}
+
+.news::before {
+  content: "";
+  position: absolute;
+  background: #cccccc linear-gradient(90deg, #bbbbbb, #fff);
+  width: 80%;
+  height: 1px;
+  top: 35px;
+  left: 0;
+}
+
+.news-heading {
+  color: #ed552f;
+  font-size: 1.5rem;
+  margin: 0 0 35px 0;
+}
+
+.news-link {
+  display: block;
+}
+
+.news-item {
+  padding-left: 125px;
+  position: relative;
+  min-height: 100px;
+}
+
+.news-item-subject {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.news-item-brief {
+  margin: 10px 0 0 0;
+  line-height: 1.6;
+}
+
+.news-item-thumbnail {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+
+.news-item-thumbnail img {
+  box-shadow: 0 15px 20px 2px #aaaaaa;
+  display: block;
+  margin: 0 0 20px 0;
+}
+
+.news-more {
+  position: absolute;
+  top: -8px;
+  right: 0;
+  padding: 8px;
+}
 
 /* 슬로건 */
 .slogan {
