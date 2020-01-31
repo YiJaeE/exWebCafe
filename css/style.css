@@ -530,7 +530,8 @@ p::after {
 .board {
   width: 380px;
   position: relative;
-  /* padding-top: 45px; */
+  padding-top: 45px;
+  margin-top: 20px;
 }
 
 .notice-list, .notice-more, .pds-list, .pds-more {
@@ -610,6 +611,8 @@ p::after {
   color: hsla(110, 50%, 50%, 1);
 }
 
+
+
 /* float를 사용한 방법 */
 /* .notice-list li, .pds-list li {
   background-color: orange;
@@ -639,6 +642,7 @@ p::after {
 /* 새소식 */
 .news {
   position: relative;
+  margin-top: 20px;
 }
 
 .news::before {
@@ -712,7 +716,7 @@ p::after {
   border-bottom: 1px solid #888888;
 }
 
-.event-heading {
+.event-heading, .related-heading {
   margin: 0 0 10px 0;
   font-size: 1.5rem;
 }
@@ -754,6 +758,49 @@ p::after {
 .btn-event-next {
   background-position: 100% 0;
 }
+
+.related {
+  padding-top: 10px;
+}
+
+.related-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  border: 1px solid #888888;
+  border-radius: 5px;
+  background: #fff;
+  height: 27px;
+  overflow: hidden;
+  transition-property: height, padding;
+  transition-duration: 400ms;
+  transition-delay: 200ms, 0ms;
+  transition-timing-function: ease-in-out;
+}
+
+.related-list:hover, .related-list:focus {
+  height: 147px;
+  padding: 10px 0;
+}
+
+.related-list li {
+  height: 27px;
+  padding: 2px;
+}
+
+.related-list a {
+  text-indent: 1em;
+  /* 디스플레이 블록 */
+  /* display: block;
+  line-height: 25px; */
+
+  /* 디스플레이 플렉스 */
+  display: flex;
+  align-items: center;
+  height: 25px;
+}
+
+
 
 /* 슬로건 */
 .slogan {
