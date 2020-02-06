@@ -1,13 +1,13 @@
 // variable
 const $nav = document.querySelector('.navigation');
-let $menu = document.querySelector('.menu');
-let $various = $menu.children;
-let $menuList = document.querySelector('.menu li');
-let $items = document.querySelectorAll('.menu-item');
-let $item = document.querySelector('.menu-item');
-let $subList = document.querySelector('.submenu li');
-let $icons = document.querySelectorAll('.submenu a');
-let $icon = document.querySelector('.submenu a');
+const $menu = document.querySelector('.menu');
+const $various = $menu.children;
+const $menuList = document.querySelector('.menu li');
+const $items = document.querySelectorAll('.menu-item');
+const $item = document.querySelector('.menu-item');
+const $subList = document.querySelector('.submenu li');
+const $icons = document.querySelectorAll('.submenu a');
+const $icon = document.querySelector('.submenu a');
 
 // console.log($menu);
 // console.log($menuList);
