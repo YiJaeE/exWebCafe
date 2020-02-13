@@ -1,13 +1,13 @@
 // variable
 const $nav = document.querySelector('.navigation');
-const $menu = document.querySelector('.menu');
+const $menu = $nav.querySelector('.menu');
 const $various = $menu.children;
-const $menuList = document.querySelector('.menu li');
-const $items = document.querySelectorAll('.menu-item');
-const $item = document.querySelector('.menu-item');
-const $subList = document.querySelector('.submenu li');
-const $icons = document.querySelectorAll('.submenu a');
-const $icon = document.querySelector('.submenu a');
+const $menuList = $menu.querySelector('.menu li');
+const $items = $menu.querySelectorAll('.menu-item');
+const $item = $menu.querySelector('.menu-item');
+const $subList = $item.querySelector('.submenu li');
+const $icons = $menu.querySelectorAll('.submenu a');
+const $icon = $item.querySelector('.submenu a');
 
 // console.log($menu);
 // console.log($menuList);
@@ -31,8 +31,9 @@ $menu.addEventListener('click', function (e) {
 $menu.addEventListener('mouseover', function (e) {
   const $hoverChange = e.target.parentNode;
   [...$items].map((item) => {
-    // const $nowFocus = document.activeElement.childNodes;
-    // console.log($nowFocus);
+    const $nowFocus = $menuList.childNodes;
+    console.log($nowFocus);
+    // $nowFocus에 .menu-act를 추가하는데 서브메뉴에 있을 때는 .menu-act를 살리고 메인메뉴에 있을 때는 .menu-act를 죽임
     
     // console.log(item);   
     // item.classList.remove('menu-act');
