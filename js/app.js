@@ -1,45 +1,42 @@
 // variable
 const $menu = document.querySelector('.menu');
-const $various = $menu.children;
 const $items = $menu.querySelectorAll('.menu-item');
 const $subList = $menu.querySelector('.submenu li');
 const $icons = $menu.querySelectorAll('.submenu a');
-const $icon = $menu.querySelector('.submenu a');
 
 // Main Menu
+
+// class remove func
+const removeClass = () => {
+  [...$items].map(removeClass => {
+    removeClass.classList.remove('menu-act');
+  });
+};
+
 // click event
 $menu.addEventListener('click', ({ target }) => {
   const $clickChange = target.parentNode;
-  [...$various].map(removeClass => {
-    removeClass.classList.remove('menu-act');
-  });
+  removeClass();
   if ($subList === $clickChange) return;
   $clickChange.classList.add('menu-act');
 });
 
 // mouseover event
-[...$various].map(hover => {
-  hover.addEventListener('mouseover', ({ target }) => {
+[...$items].map(hoverItem => {
+  hoverItem.addEventListener('mouseover', ({ target }) => {
     const $hoverChange = target.parentNode;
-    if ($hoverChange.matches('.menu-item')) {
-      [...$various].map(removeClass => {
-        removeClass.classList.remove('menu-act');
-      });
-    }
-    hover.classList.add('menu-act');
+    if ($hoverChange.matches('.menu-item')) removeClass();
+    hoverItem.classList.add('menu-act');
   });
 });
 
 // focus event
-[...$items].map(item => {
-  item.addEventListener('focusin', ({ target }) => {
+[...$items].map(focusItem => {
+  focusItem.addEventListener('focusin', ({ target }) => {
     const $focusMenu = target;
     const $nowFocus = document.activeElement;
-    if ($nowFocus === item) {
-      [...$various].map(removeClass => {
-        removeClass.classList.remove('menu-act');
-      });
-    } else if ($icon === $focusMenu) return;
+    if ($nowFocus === focusItem) removeClass();
+    else if ($focusMenu.matches('.submenu a')) return;
     $focusMenu.classList.add('menu-act');
   });
 });
