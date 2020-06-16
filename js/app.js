@@ -5,7 +5,7 @@ const $icons = $menu.querySelectorAll('.submenu a');
 const $panels = document.querySelectorAll('.board section');
 const $tab = document.querySelector('.board a');
 
-// Main Menu
+// Main Menu start
 // class remove common function
 const removeClass = () => {
   [...$items].map(removeClass => {
@@ -71,7 +71,7 @@ $menu.addEventListener('click', ({ target }) => {
   });
 });
 
-// tab menu
+// Tab Menu
 [...$panels].map(panel => {
   panel.addEventListener('click', e => {
     e.preventDefault();
