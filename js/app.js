@@ -4,7 +4,7 @@ const $icons = $menu.querySelectorAll('.submenu a');
 const $board = document.querySelector('.board');
 
 // class remove common function
-const removeClass = (() => {
+const removeAllClass = (() => {
   return {
     menu() {
       [...$menu.children].map(removeMainActive => {
@@ -23,23 +23,17 @@ const removeClass = (() => {
 // main menu evet function
 const mainMenuEvent = (() => {
   return {
-    click({ target }) {
-      const $clickChange = target.parentNode;
-      removeClass.menu();
+    clickHover({ target }) {
+      const $menuChange = target.parentNode;
       if (!target.matches('.menu-button')) return;
-      $clickChange.classList.add('menu-act');
+      else if ($menuChange.matches('.menu-item')) removeAllClass.menu();
+      $menuChange.classList.add('menu-act');
     },
-    mouseover({ target }) {
-      const $hoverChange = target.parentNode;
-      if (!target.matches('.menu-button' || '.menu-item')) return;
-      else if ($hoverChange.matches('.menu-item')) removeClass.menu();
-      $hoverChange.classList.add('menu-act');
-    },
-    focusin({ target }) {
+    focus({ target }) {
       const $focusMenu = target;
       const $nowFocus = document.activeElement;
       if (!$nowFocus.matches('.submenu a' || 'menu-item')) {
-        removeClass.menu();
+        removeAllClass.menu();
       } else if ($nowFocus.matches('.submenu a')) return;
       $focusMenu.classList.add('menu-act');
     },
@@ -68,7 +62,7 @@ const subMenuChangeIcon = (() => {
 const tabActive = e => {
   e.preventDefault();
   if (e.target.matches('.board > section > h2 > a')) {
-    removeClass.board();
+    removeAllClass.board();
     const $panel = e.target.parentNode.parentNode;
     $panel.classList.add('board-act');
   }
@@ -76,9 +70,9 @@ const tabActive = e => {
 
 // event handler
 // main menu
-$menu.addEventListener('click', mainMenuEvent.click);
-$menu.addEventListener('mouseover', mainMenuEvent.mouseover);
-$menu.addEventListener('focusin', mainMenuEvent.focusin);
+$menu.addEventListener('click', mainMenuEvent.clickHover);
+$menu.addEventListener('mouseover', mainMenuEvent.clickHover);
+$menu.addEventListener('focusin', mainMenuEvent.focus);
 // sub menu
 $menu.addEventListener('mouseover', subMenuChangeIcon.active);
 $menu.addEventListener('mouseout', subMenuChangeIcon.inactive);
