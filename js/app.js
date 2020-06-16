@@ -11,31 +11,36 @@ const removeClass = () => {
   });
 };
 
-// click event
-$menu.addEventListener('click', ({ target }) => {
-  const $clickChange = target.parentNode;
-  removeClass();
-  if (!target.matches('.menu-button')) return;
-  $clickChange.classList.add('menu-act');
-});
+// main menu evet closure
+const menuEvent = (() => {
+  return {
+    click(target) {
+      const $clickChange = target.parentNode;
+      removeClass();
+      if (!target.matches('.menu-button')) return;
+      $clickChange.classList.add('menu-act');
+    },
+    mouseover(target) {
+      const $hoverChange = target.parentNode;
+      if (!target.matches('.menu-button' || '.menu-item')) return;
+      else if ($hoverChange.matches('.menu-item')) removeClass();
+      $hoverChange.classList.add('menu-act');
+    },
+    focusin(target) {
+      const $focusMenu = target;
+      const $nowFocus = document.activeElement;
+      if (!$nowFocus.matches('.submenu a' || 'menu-item')) {
+        removeClass();
+      } else if ($nowFocus.matches('.submenu a')) return;
+      $focusMenu.classList.add('menu-act');
+    },
+  };
+})();
 
-// mouseover event
-$menu.addEventListener('mouseover', ({ target }) => {
-  const $hoverChange = target.parentNode;
-  if (!target.matches('.menu-button' || '.menu-item')) return;
-  else if ($hoverChange.matches('.menu-item')) removeClass();
-  $hoverChange.classList.add('menu-act');
-});
-
-// focus event
-$menu.addEventListener('focusin', ({ target }) => {
-  const $focusMenu = target;
-  const $nowFocus = document.activeElement;
-  if (!$nowFocus.matches('.submenu a' || 'menu-item')) {
-    removeClass();
-  } else if ($nowFocus.matches('.submenu a')) return;
-  $focusMenu.classList.add('menu-act');
-});
+// click || mouseover || focusin event
+$menu.addEventListener('click', ({ target }) => menuEvent.click(target));
+$menu.addEventListener('mouseover', ({ target }) => menuEvent.mouseover(target));
+$menu.addEventListener('focusin', ({ target }) => menuEvent.focusin(target));
 
 // Sub Menu
 // basic icon
@@ -43,19 +48,25 @@ $menu.addEventListener('focusin', ({ target }) => {
   basicIcon.classList.add('icon-dot-circled');
 });
 
-// icon change common function
-const changeIcon = ({ target }) => {
-  if (target.matches('.submenu > li > a')) {
-    [...$icons].map(icon => {
+const changeIcon = (() => {
+  return {
+    active(icon) {
+      icon.classList.replace('icon-dot-circled', 'icon-ok');
+    },
+    inactive(icon) {
       icon.classList.replace('icon-ok', 'icon-dot-circled');
-    });
-  }
-  target.classList.replace('icon-dot-circled', 'icon-ok');
-};
+    },
+  };
+})();
 
-// mouseover || focus event
-$menu.addEventListener('mouseover', changeIcon);
-$menu.addEventListener('focusin', changeIcon);
+$menu.addEventListener('mouseover', ({ target }) => changeIcon.active(target));
+$menu.addEventListener('mouseout', () => {
+  [...$icons].map(icon => changeIcon.inactive(icon));
+});
+$menu.addEventListener('focusin', ({ target }) => changeIcon.active(target));
+$menu.addEventListener('focusout', () => {
+  [...$icons].map(icon => changeIcon.inactive(icon));
+});
 
 // Tab Menu
 $board.addEventListener('click', e => {
