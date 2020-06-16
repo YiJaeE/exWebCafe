@@ -3,6 +3,7 @@ const $menu = document.querySelector('.menu');
 const $items = $menu.querySelectorAll('.menu-item');
 const $icons = $menu.querySelectorAll('.submenu a');
 const $panels = document.querySelectorAll('.board section');
+const $tab = document.querySelector('.board a');
 
 // Main Menu
 // class remove common function
