@@ -3,7 +3,6 @@ const $menu = document.querySelector('.menu');
 const $icons = $menu.querySelectorAll('.submenu a');
 const $board = document.querySelector('.board');
 
-// Main Menu
 // class remove common function
 const removeClass = (() => {
   return {
@@ -20,6 +19,7 @@ const removeClass = (() => {
   };
 })();
 
+// Main Menu
 // main menu evet function
 const mainMenuEvent = (() => {
   return {
