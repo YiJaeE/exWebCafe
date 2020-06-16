@@ -50,13 +50,14 @@ const subMenuChangeIcon = (() => {
     activeEvent({ target }) {
       target.classList.replace('icon-dot-circled', 'icon-ok');
     },
-    inactiveEvent() {
-      [...$icons].map(icon => icon.classList.replace('icon-ok', 'icon-dot-circled'));
+    inactiveEvent({ target }) {
+      target.classList.replace('icon-ok', 'icon-dot-circled');
     },
   };
 })();
 
 // Tab Menu
+// tab menu event function
 const tabActiveEvent = e => {
   e.preventDefault();
   if (e.target.matches('.board > section > h2 > a')) {
