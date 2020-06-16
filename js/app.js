@@ -1,12 +1,11 @@
 // variable
 const $menu = document.querySelector('.menu');
 const $items = $menu.querySelectorAll('.menu-item');
-const $subList = $menu.querySelector('.submenu li');
 const $icons = $menu.querySelectorAll('.submenu a');
+const $panels = document.querySelectorAll('.board section');
 
 // Main Menu
-
-// class remove func
+// class remove common function
 const removeClass = () => {
   [...$items].map(removeClass => {
     removeClass.classList.remove('menu-act');
@@ -17,7 +16,7 @@ const removeClass = () => {
 $menu.addEventListener('click', ({ target }) => {
   const $clickChange = target.parentNode;
   removeClass();
-  if ($subList === $clickChange) return;
+  if (!target.matches('.menu-button')) return;
   $clickChange.classList.add('menu-act');
 });
 
@@ -68,5 +67,16 @@ $menu.addEventListener('click', ({ target }) => {
   changeIcon.addEventListener('focusout', ({ target }) => {
     const $focusOutIcon = target;
     $focusOutIcon.classList.replace('icon-ok', 'icon-dot-circled');
+  });
+});
+
+// tab menu
+[...$panels].map(panel => {
+  panel.addEventListener('click', e => {
+    e.preventDefault();
+    [...$panels].map(removeTab => {
+      removeTab.classList.remove('board-act');
+    });
+    panel.classList.add('board-act');
   });
 });
