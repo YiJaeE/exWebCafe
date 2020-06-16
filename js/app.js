@@ -65,14 +65,14 @@ const subMenuChangeIcon = (() => {
 })();
 
 // Tab Menu
-const tabActive = e => {
+const tabActive = (e => {
   e.preventDefault();
   if (e.target.matches('.board > section > h2 > a')) {
     removeClass.board();
     const $panel = e.target.parentNode.parentNode;
     $panel.classList.add('board-act');
   }
-};
+})();
 
 // event handler
 // main menu
