@@ -67,7 +67,7 @@ const tabActiveEvent = e => {
   }
 };
 
-// event handler
+// Event Handler
 // main menu
 $menu.addEventListener('click', mainMenuEvent.mouseEvent);
 $menu.addEventListener('mouseover', mainMenuEvent.mouseEvent);
