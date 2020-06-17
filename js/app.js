@@ -3,7 +3,7 @@ const $menu = document.querySelector('.menu');
 const $icons = $menu.querySelectorAll('.submenu a');
 const $board = document.querySelector('.board');
 
-// class remove common function
+// remove class function => main menu & tab menu
 const removeAllClass = (() => {
   return {
     menu() {
@@ -19,8 +19,7 @@ const removeAllClass = (() => {
   };
 })();
 
-// Main Menu
-// main menu evet function
+// main menu event function => click & mouseover & focus
 const mainMenuEvent = (() => {
   return {
     mouseEvent({ target }) {
@@ -41,11 +40,10 @@ const mainMenuEvent = (() => {
   };
 })();
 
-// Sub Menu
-// basic icon
+// sub menu insert basic icon
 [...$icons].map(basicIcon => basicIcon.setAttribute('class', 'icon-dot-circled'));
 
-// change icon common function
+// sub menu change icon event function => mouseover & focus
 const subMenuChangeIcon = (() => {
   return {
     activeEvent({ target }) {
@@ -57,8 +55,7 @@ const subMenuChangeIcon = (() => {
   };
 })();
 
-// Tab Menu
-// tab menu event function
+// tab menu event function => click
 const tabActiveEvent = e => {
   e.preventDefault();
   const $panel = e.target.parentNode.parentNode;
@@ -68,7 +65,7 @@ const tabActiveEvent = e => {
   $panel.classList.add('board-act');
 };
 
-// Event Handler
+// event Handler
 // main menu
 $menu.addEventListener('click', mainMenuEvent.mouseEvent);
 $menu.addEventListener('mouseover', mainMenuEvent.mouseEvent);
