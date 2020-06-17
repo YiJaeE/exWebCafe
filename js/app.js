@@ -3,20 +3,22 @@ const $menu = document.querySelector('.menu');
 const $icons = $menu.querySelectorAll('.submenu a');
 const $board = document.querySelector('.board');
 
-// remove class function => main menu & tab menu
-const removeAllClass = position => {
-  const $removeTargets = position === 'menu' ? $menu.children : $board.children;
+// change class function => main menu & tab menu
+const changeActClass = target => {
+  const condition = target.tagName === 'LI';
+  const $removeTargets = condition ? $menu.children : $board.children;
+  const addActClass = condition ? 'menu-act' : 'board-act';
   [...$removeTargets].map(removeTarget => {
-    removeTarget.classList.remove(`${position}-act`);
+    removeTarget.classList.remove(`${addActClass}`);
   });
+  target.classList.add(`${addActClass}`);
 };
 
 // main menu event function => click & mouseover & focus
 const mainMenuEvent = ({ type, target }) => {
   const $target = type === 'focusin' ? target : target.parentNode;
   if ($target.matches('.menu-item')) {
-    removeAllClass('menu');
-    $target.classList.add('menu-act');
+    changeActClass($target);
   }
 };
 
@@ -36,11 +38,10 @@ const subMenuChangeIcon = (() => {
 })();
 
 // tab menu event function => click
-const tabActiveEvent = e => {
+const tabMenuEvent = e => {
   e.preventDefault();
   const $panel = e.target.parentNode.parentNode;
-  removeAllClass('board');
-  $panel.classList.add('board-act');
+  changeActClass($panel);
 };
 
 // event Handler
@@ -54,4 +55,4 @@ $menu.addEventListener('mouseout', subMenuChangeIcon.inactiveEvent);
 $menu.addEventListener('focusin', subMenuChangeIcon.activeEvent);
 $menu.addEventListener('focusout', subMenuChangeIcon.inactiveEvent);
 // tab menu
-$board.addEventListener('click', tabActiveEvent);
+$board.addEventListener('click', tabMenuEvent);
