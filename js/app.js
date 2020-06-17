@@ -25,8 +25,9 @@ const mainMenuEvent = (() => {
   return {
     mouseEvent({ target }) {
       const $menuChange = target.parentNode;
-      if (!target.matches('.menu-button')) return;
-      else if ($menuChange.matches('.menu-item')) removeAllClass.menu();
+      if ($menuChange.matches('.menu-item')) {
+        removeAllClass.menu();
+      } else return;
       $menuChange.classList.add('menu-act');
     },
     focusEvent({ target }) {
@@ -34,7 +35,7 @@ const mainMenuEvent = (() => {
       const $nowFocus = document.activeElement;
       if (!$nowFocus.matches('.submenu a' || 'menu-item')) {
         removeAllClass.menu();
-      } else if ($nowFocus.matches('.submenu a')) return;
+      }
       $focusMenu.classList.add('menu-act');
     },
   };
@@ -60,11 +61,11 @@ const subMenuChangeIcon = (() => {
 // tab menu event function
 const tabActiveEvent = e => {
   e.preventDefault();
+  const $panel = e.target.parentNode.parentNode;
   if (e.target.matches('.board > section > h2 > a')) {
     removeAllClass.board();
-    const $panel = e.target.parentNode.parentNode;
-    $panel.classList.add('board-act');
   }
+  $panel.classList.add('board-act');
 };
 
 // Event Handler
