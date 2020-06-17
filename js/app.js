@@ -5,9 +5,9 @@ const $board = document.querySelector('.board');
 
 // remove class function => main menu & tab menu
 const removeAllClass = position => {
-  const action = position === 'menu' ? $menu.children : $board.children;
-  [...action].map(removeAction => {
-    removeAction.classList.remove(`${position}-act`);
+  const $removeTargets = position === 'menu' ? $menu.children : $board.children;
+  [...$removeTargets].map(removeTarget => {
+    removeTarget.classList.remove(`${position}-act`);
   });
 };
 
@@ -16,8 +16,8 @@ const mainMenuEvent = ({ type, target }) => {
   const $target = type === 'focusin' ? target : target.parentNode;
   if ($target.matches('.menu-item')) {
     removeAllClass('menu');
-  } else return;
-  $target.classList.add('menu-act');
+    $target.classList.add('menu-act');
+  }
 };
 
 // sub menu insert basic icon
@@ -39,9 +39,7 @@ const subMenuChangeIcon = (() => {
 const tabActiveEvent = e => {
   e.preventDefault();
   const $panel = e.target.parentNode.parentNode;
-  if (e.target.matches('.board > section > h2 > a')) {
-    removeAllClass('board');
-  }
+  removeAllClass('board');
   $panel.classList.add('board-act');
 };
 
