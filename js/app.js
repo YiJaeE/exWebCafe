@@ -42,7 +42,7 @@ const mainMenuEvent = (() => {
 
 // Sub Menu
 // basic icon
-[...$icons].map(basicIcon => basicIcon.classList.add('icon-dot-circled'));
+[...$icons].map(basicIcon => basicIcon.setAttribute('class', 'icon-dot-circled'));
 
 // change icon common function
 const subMenuChangeIcon = (() => {
