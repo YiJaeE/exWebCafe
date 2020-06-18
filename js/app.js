@@ -1,31 +1,31 @@
 // variable
-const $menu = document.querySelector('.menu');
-const $icons = $menu.querySelectorAll('.submenu a');
-const $board = document.querySelector('.board');
+const menu = document.querySelector('.menu');
+const icons = menu.querySelectorAll('.submenu a');
+const board = document.querySelector('.board');
 
 // change class function => main menu & tab menu
 const changeActClass = target => {
   const condition = target.tagName === 'LI';
-  const $removeTargets = condition ? $menu.children : $board.children;
-  const addActClass = condition ? 'menu-act' : 'board-act';
-  [...$removeTargets].map(removeTarget => {
-    removeTarget.classList.remove(`${addActClass}`);
+  const removeTargets = condition ? menu.children : board.children;
+  const addActiveClass = condition ? 'menu-act' : 'board-act';
+  [...removeTargets].map(removeTarget => {
+    removeTarget.classList.remove(`${addActiveClass}`);
   });
-  target.classList.add(`${addActClass}`);
+  target.classList.add(`${addActiveClass}`);
 };
 
-// main menu event function => click & mouseover & focus
+// main menu event function => click & mouseover & focusin
 const mainMenuEvent = ({ type, target }) => {
-  const $target = type === 'focusin' ? target : target.parentNode;
-  if ($target.matches('.menu-item')) {
-    changeActClass($target);
+  const eventTarget = type === 'focusin' ? target : target.parentNode;
+  if (eventTarget.matches('.menu-item')) {
+    changeActClass(eventTarget);
   }
 };
 
 // sub menu insert basic icon
-[...$icons].map(basicIcon => basicIcon.setAttribute('class', 'icon-dot-circled'));
+[...icons].map(basicIcon => basicIcon.setAttribute('class', 'icon-dot-circled'));
 
-// sub menu change icon event function => mouseover & focus
+// sub menu change icon event function => mouseover & focusin
 const subMenuChangeIcon = (() => {
   return {
     activeEvent({ target }) {
@@ -40,19 +40,19 @@ const subMenuChangeIcon = (() => {
 // tab menu event function => click
 const tabMenuEvent = e => {
   e.preventDefault();
-  const $panel = e.target.parentNode.parentNode;
-  changeActClass($panel);
+  const panel = e.target.parentNode.parentNode;
+  changeActClass(panel);
 };
 
 // event Handler
 // main menu
-$menu.addEventListener('click', mainMenuEvent);
-$menu.addEventListener('mouseover', mainMenuEvent);
-$menu.addEventListener('focusin', mainMenuEvent);
+menu.addEventListener('click', mainMenuEvent);
+menu.addEventListener('mouseover', mainMenuEvent);
+menu.addEventListener('focusin', mainMenuEvent);
 // sub menu
-$menu.addEventListener('mouseover', subMenuChangeIcon.activeEvent);
-$menu.addEventListener('mouseout', subMenuChangeIcon.inactiveEvent);
-$menu.addEventListener('focusin', subMenuChangeIcon.activeEvent);
-$menu.addEventListener('focusout', subMenuChangeIcon.inactiveEvent);
+menu.addEventListener('mouseover', subMenuChangeIcon.activeEvent);
+menu.addEventListener('mouseout', subMenuChangeIcon.inactiveEvent);
+menu.addEventListener('focusin', subMenuChangeIcon.activeEvent);
+menu.addEventListener('focusout', subMenuChangeIcon.inactiveEvent);
 // tab menu
-$board.addEventListener('click', tabMenuEvent);
+board.addEventListener('click', tabMenuEvent);
